@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const blogSchema = mongoose.Schema({
   title: String,
-  text: String,
+  content: String,
   date: Date,
   user: {
     type: mongoose.Schema.Types.ObjectId,
