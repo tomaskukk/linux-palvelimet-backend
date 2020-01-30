@@ -1,9 +1,2 @@
 
-POST http://localhost:3001/api/blogs
-Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvbWFza3VrayIsImlkIjoiNWUzMTg0MTZhYmRmZjIwYzgyYTFlNGQxIiwiaWF0IjoxNTgwMzA2NTExfQ.ySzUIBDiWo3OklgZrML1N-_l5RxnWpABJk_SUpRwLRM
-
-{
-    "title": "Hieno blogiposti",
-    "content": "Upeeta"
-}
+GET http://localhost:3001/api/users
