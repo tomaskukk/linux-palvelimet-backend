@@ -5,7 +5,7 @@ const User = require("../models/user");
 usersRouter.post("/", async (request, response, next) => {
   try {
     const body = request.body;
-
+    console.log(body);
     const saltRounds = 10;
     const passwordHash = await bcrypt.hash(body.password, saltRounds);
 
