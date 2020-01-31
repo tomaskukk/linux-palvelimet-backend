@@ -31,12 +31,10 @@ blogsRouter.get("/:id", async (request, response, next) => {
 
 blogsRouter.post("/", async (request, response, next) => {
   const body = request.body;
-
+  console.log(body);
   const token = getTokenFrom(request);
-  console.log(token);
   try {
     const decodedToken = jwt.verify(token, process.env.SECRET);
-    console.log(decodedToken);
     if (!token || !decodedToken.id) {
       return response.status(401).json({ error: "token missing or invalid" });
     }
@@ -67,14 +65,23 @@ blogsRouter.delete("/:id", async (request, response, next) => {
   }
 });
 
-blogsRouter.put("/:id", (request, response, next) => {
+blogsRouter.put("/:id", async (request, response, next) => {
   const body = request.body;
 
   const blog = {
     content: body.content
   };
+  const currentBlog = await Blog.findById(request.params.id);
+  const oldContent = currentBlog.content;
+  const newBlog = blog.content;
+  const arrayOfBlogs = [...newBlog, ...oldContent];
 
-  Blog.findByIdAndUpdate(request.params.id, blog, { new: true })
+  const newBlogToSave = {
+    content: arrayOfBlogs
+  };
+
+  console.log(arrayOfBlogs);
+  Blog.findByIdAndUpdate(request.params.id, newBlogToSave, { new: true })
     .then(updatedBlog => {
       response.json(updatedBlog.toJSON());
     })

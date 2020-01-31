@@ -1,0 +1,31 @@
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZpc2lpcmkiLCJpZCI6IjVlMzJkNzA5ODA0NGJlNGVmMmM0OTFiMiIsImlhdCI6MTU4MDQ2NTk1NX0.eb72INMT1Ltq3TQiNGO83XvmClnvt1bNzCBQoOfBHJU
+ 
+{
+    "title": "Joo",
+    "content": [
+        {
+            "title": "Hieno a)",
+            "content": "upeeta"
+        },
+        {
+            "title": "hieno b)",
+            "content": "loistavaa"
+        }
+    ]
+}
+
+###
+PUT  http://localhost:3001/api/blogs/5e33ff5e9edda8186fcfacec
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZpc2lpcmkiLCJpZCI6IjVlMzJkNzA5ODA0NGJlNGVmMmM0OTFiMiIsImlhdCI6MTU4MDQ2NTk1NX0.eb72INMT1Ltq3TQiNGO83XvmClnvt1bNzCBQoOfBHJU
+ 
+{
+    "content": [
+        {
+            "title": "Lisää!!!",
+            "content": "Tosi hassua"
+        }
+    ]
+}
