@@ -23,16 +23,17 @@ mongoose
 
 app.use(cors());
 app.use(express.static("build"));
+const path = require("path");
+
 app.use(bodyParser.json());
 app.use(middleware.requestLogger);
-app.get("*", function(req, res) {
-  res.sendfile("./build/index.html");
-});
+
 app.use("/api/users", usersRouter);
 app.use("/api/blogs", blogsRouter);
 app.use("/api/login", loginRouter);
-
-app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
 
+app.get("*", (req, res) => {
+  res.sendfile(path.resolve(__dirname, "build", "index.html"));
+});
 module.exports = app;
