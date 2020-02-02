@@ -25,7 +25,9 @@ app.use(cors());
 app.use(express.static("build"));
 app.use(bodyParser.json());
 app.use(middleware.requestLogger);
-
+app.get("*", function(req, res) {
+  res.sendfile("./build/index.html");
+});
 app.use("/api/users", usersRouter);
 app.use("/api/blogs", blogsRouter);
 app.use("/api/login", loginRouter);
