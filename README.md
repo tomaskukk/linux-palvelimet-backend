@@ -1,4 +1,4 @@
-# Weather-application
+# React, Node and MongoDB website
 
 Website to return linux-course exercises
 
